@@ -7,7 +7,7 @@ import Koa from "koa";
 import next from "next";
 import Router from "koa-router";
 import koaBody from 'koa-body';
-import GetCRUD from '../server/Crud/Index'
+// import GetCRUD from '../server/Crud/Index'
 
 dotenv.config();
 const port = parseInt(process.env.PORT, 10) || 8081;
@@ -88,115 +88,115 @@ app.prepare().then(async () => {
   });
 
   //
-  router.post( 
-    "/api/webhook",
-    async (ctx, next) => {
-      if(ctx.req.method === "POST"){
-        const ifSuccess  = await GetCRUD.post(ctx);
-        if(ifSuccess==0){
-          ctx.response.status = 200;
-          ctx.res.statusCode = 200;
-          ctx.body = {
-              success: false,
-              "Message":"already exist"
-          };  
-        }else{
-          ctx.response.status = 201;
-          ctx.body = {
-              success: true,
-              "Message":"success"
-          };
-        }
-      }else{  
-        ctx.response.status = 401;
-        ctx.body = {
-            success: false,
-            "Message":"Unable to save the data."
-        };
-      }
-    }
-  );
-  router.get( 
-    "/api/get/product/takaful",
-    async (ctx, next) => {
-      if(ctx.req.method === "GET"){
-        const productData  = await GetCRUD.getProductData();
-          ctx.response.status = 201;
-          ctx.body = {
-              success: true,
-              "Message":"success",
-              "data":productData
-          };
-        }
-    }
-  ); 
-  router.get( 
-    "/api/get/plan/takaful",
-    async (ctx, next) => {
-      if(ctx.req.method === "GET"){
-        const planData  = await GetCRUD.getPlanData();
-          ctx.response.status = 201;
-          ctx.body = {
-              success: true,
-              "Message":"success",
-              "data":planData
-          };
-        }
-    }
-  );
-  router.get( 
-    "/api/get/orders/list",
-    async (ctx, next) => {
-      if(ctx.req.method === "GET"){
-        const orderData  = await GetCRUD.getOrderData();
-          ctx.response.status = 201;
-          ctx.body = {
-              success: true,
-              "Message":"success",
-              "data":orderData
-          };
-        }
-    }
-  );
+  // router.post( 
+  //   "/api/webhook",
+  //   async (ctx, next) => {
+  //     if(ctx.req.method === "POST"){
+  //       const ifSuccess  = await GetCRUD.post(ctx);
+  //       if(ifSuccess==0){
+  //         ctx.response.status = 200;
+  //         ctx.res.statusCode = 200;
+  //         ctx.body = {
+  //             success: false,
+  //             "Message":"already exist"
+  //         };  
+  //       }else{
+  //         ctx.response.status = 201;
+  //         ctx.body = {
+  //             success: true,
+  //             "Message":"success"
+  //         };
+  //       }
+  //     }else{  
+  //       ctx.response.status = 401;
+  //       ctx.body = {
+  //           success: false,
+  //           "Message":"Unable to save the data."
+  //       };
+  //     }
+  //   }
+  // );
+  // router.get( 
+  //   "/api/get/product/takaful",
+  //   async (ctx, next) => {
+  //     if(ctx.req.method === "GET"){
+  //       const productData  = await GetCRUD.getProductData();
+  //         ctx.response.status = 201;
+  //         ctx.body = {
+  //             success: true,
+  //             "Message":"success",
+  //             "data":productData
+  //         };
+  //       }
+  //   }
+  // ); 
+  // router.get( 
+  //   "/api/get/plan/takaful",
+  //   async (ctx, next) => {
+  //     if(ctx.req.method === "GET"){
+  //       const planData  = await GetCRUD.getPlanData();
+  //         ctx.response.status = 201;
+  //         ctx.body = {
+  //             success: true,
+  //             "Message":"success",
+  //             "data":planData
+  //         };
+  //       }
+  //   }
+  // );
+  // router.get( 
+  //   "/api/get/orders/list",
+  //   async (ctx, next) => {
+  //     if(ctx.req.method === "GET"){
+  //       const orderData  = await GetCRUD.getOrderData();
+  //         ctx.response.status = 201;
+  //         ctx.body = {
+  //             success: true,
+  //             "Message":"success",
+  //             "data":orderData
+  //         };
+  //       }
+  //   }
+  // );
   
-  router.post( 
-    "/api/store/product/takaful",
-    async (ctx, next) => {
-      if(ctx.req.method === "POST"){
-        const planData  = await GetCRUD.storeProductForTakaful(ctx); 
-          ctx.response.status = 201;
-          ctx.body = {
-              success: true,
-              "Message":"success",
-              "data":planData
-          };
-        }
-    }
-  );
-  router.post( 
-    "/apps/api/get/product/takaful/id",
-    async (ctx, next) => {
-      if(ctx.req.method === "POST"){
-        const planData  = await GetCRUD.getProductByIdTakaful(ctx); 
-        if(planData){
-          let policy =await GetCRUD.getpolicy(ctx);
-          ctx.response.status = 201;
-          ctx.body = {
-              success: true,
-              "Message":"success",
-              "data":policy
-          };
-        }else{
-          ctx.response.status = 200;
-          ctx.body = {
-              success: false,
-              "Message":"record not found",
-          };
-        }
+  // router.post( 
+  //   "/api/store/product/takaful",
+  //   async (ctx, next) => {
+  //     if(ctx.req.method === "POST"){
+  //       const planData  = await GetCRUD.storeProductForTakaful(ctx); 
+  //         ctx.response.status = 201;
+  //         ctx.body = {
+  //             success: true,
+  //             "Message":"success",
+  //             "data":planData
+  //         };
+  //       }
+  //   }
+  // );
+  // router.post( 
+  //   "/apps/api/get/product/takaful/id",
+  //   async (ctx, next) => {
+  //     if(ctx.req.method === "POST"){
+  //       const planData  = await GetCRUD.getProductByIdTakaful(ctx); 
+  //       if(planData){
+  //         let policy =await GetCRUD.getpolicy(ctx);
+  //         ctx.response.status = 201;
+  //         ctx.body = {
+  //             success: true,
+  //             "Message":"success",
+  //             "data":policy
+  //         };
+  //       }else{
+  //         ctx.response.status = 200;
+  //         ctx.body = {
+  //             success: false,
+  //             "Message":"record not found",
+  //         };
+  //       }
 
-        }
-    }
-  );
+  //       }
+  //   }
+  // );
   //
   router.post(
     "/graphql",
