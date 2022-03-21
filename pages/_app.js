@@ -63,7 +63,7 @@ class MyApp extends App {
           }}
         >
           <Card>
-              <ClientRouter/>
+              {/* <ClientRouter/> */}
               <MyProvider Component={Component} {...pageProps} />
           </Card>
         </Provider>

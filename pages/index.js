@@ -8,9 +8,9 @@ export default function ProductWithTakafulList() {
  
    return (
       <Page title="Takaful Plans">
-        <Card>
+        {/* <Card>
           <PolicyList/>
-        </Card>
+        </Card> */}
       </Page>
   );
     
