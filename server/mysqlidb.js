@@ -2,10 +2,10 @@ const mysql = require("mysql");
 import {parseGid} from '@shopify/admin-graphql-api-utilities';
 
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'takaful'
+    host: 'http://143.110.177.123/',
+    user: 'onlinesupplies',
+    password: 'Cruxosoft@123',
+    database: 'tak'
 });
 
 connection.connect(function(err) {
