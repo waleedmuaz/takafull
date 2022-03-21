@@ -1,14 +1,17 @@
-import { Heading, Page } from "@shopify/polaris";
+import React, { useState} from 'react';
+import { Card, Page} from '@shopify/polaris';
+import PolicyList from './PolicyList';
 
-export default function Index() {
-  return (
-    <Page>
-      <Heading>
-        Shopify app with Node and React{" "}
-        <span role="img" aria-label="tada emoji">
-          🎉
-        </span>
-      </Heading>
-    </Page>
+
+
+export default function ProductWithTakafulList() {
+ 
+   return (
+      <Page title="Takaful Plans">
+        <Card>
+          <PolicyList/>
+        </Card>
+      </Page>
   );
+    
 }
