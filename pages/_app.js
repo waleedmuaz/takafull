@@ -1,13 +1,12 @@
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import App from "next/app";
-import { AppProvider, Card, Page } from "@shopify/polaris";
+import { AppProvider } from "@shopify/polaris";
+import { Provider, useAppBridge } from "@shopify/app-bridge-react";
 import { authenticatedFetch } from "@shopify/app-bridge-utils";
 import { Redirect } from "@shopify/app-bridge/actions";
 import "@shopify/polaris/dist/styles.css";
 import translations from "@shopify/polaris/locales/en.json";
-import  ClientRouter  from "../pages/Functional/ClientRouter";
-import { Provider, useAppBridge } from "@shopify/app-bridge-react";
 
 function userLoggedInFetch(app) {
   const fetchFunction = authenticatedFetch(app);
@@ -62,10 +61,7 @@ class MyApp extends App {
             forceRedirect: true,
           }}
         >
-          <Card>
-              {/* <ClientRouter/> */}
-              <MyProvider Component={Component} {...pageProps} />
-          </Card>
+          <MyProvider Component={Component} {...pageProps} />
         </Provider>
       </AppProvider>
     );
